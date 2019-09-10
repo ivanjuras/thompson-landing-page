@@ -1,0 +1,21 @@
+/********** Utilities **********/
+
+@media(max-width: 1024px) {
+  .u-desktop-only {
+    display: none !important;
+  }
+}
+
+@media(min-width: 1024px) {
+  .u-mobile-only {
+    display: none;
+  }
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-align-items-center {
+  align-items: center;
+}

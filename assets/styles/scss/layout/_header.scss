@@ -1,0 +1,66 @@
+/********** Header **********/
+
+.main-header {
+  display: flex;
+  z-index: 5;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+@media(min-width: 1200px) {
+  .main-header {
+    padding: 2rem 0;
+    background-size: cover;
+    box-shadow: 0;
+  } 
+}
+
+.header-left {
+  display: none;
+}
+@media(min-width: 1024px) {
+  .header-left {
+    display: block;
+    width: 33%;
+  }
+}
+
+.header-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(min-width: 1024px) {
+  .header-center {
+    width: 33%;
+  }
+}
+
+.header-right {
+  display: none;
+}
+@media(min-width: 1024px) {
+  .header-right {
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
+  }
+}
+
+.logo {
+  max-width: 200px;
+}
+@media(min-width: 1024px) {
+  .logo {
+    max-width: 100%;
+  }
+}
+.phone-icon {
+  position: absolute;
+  right: 5%;
+}

@@ -6,342 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Hansons Window Quotes</title>
     <meta name="description" content="Request your free window replacement price quote and get instant access to your free brochure, plus 50% off installation.">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/assets/styles/main.css">
   </head>
   <body>
 
     <!-- Header -->
-    <section class="main-header">
+    <header class="main-header">
+      <div class="container u-align-items-center">
+          <div class="header-left">
+            <h4 class="save-big">Save Big This Season</h4>
+          </div>
+  
+          <div class="header-center">
+            <img class="logo" src="./assets/media/thompson-logo.png" alt="Thompson Creek logo">
+            <a class="phone-icon u-mobile-only" href="#"><img src="./assets/media/ringer-volume-50.png" alt="Ringer icon"></a>
+          </div>
+  
+          <div class="header-right">
+            <a href="" class="phone-number">(240) 623-5539</a>
+          </div>
+      </div>
+    </header>
+
+    <section class="main-hero">
       <div class="container">
-        <div class="main-header__left">
-            <img class="main-header__logo" src="./assets/media/logo.png" alt="Hansons Logo">
-            <h4 class="main-header__tagline">Save Big This Season</h4>
-          </div>
-
-          <div class="main-header__right main-header__right--desktop">
-            <h4 class="main-header__call-cta">Call for an Instant Quote</h4>
-            <a href="tel:+1-888-497-9830" class="main-header__call-number">1-888-497-8930</a>
-          </div>
-
-          <div class="main-header__right main-header__right--mobile">
-            <a href="tel:+1-888-497-9830" class="main-header__call-icon">
-              <img src="assets/media/ringer-volume-50.png" alt="ringer phone">
-            </a>
-          </div>
+        dfds
       </div>
     </section>
-
-    <section class="main-content">
-      <div class="container container--main">
-        <div class="main-content__headline-section">
-          <h1 class="main-content__headline">
-              Request your Free Price Quote and get Instant Access to:
-            </h1>
-            <h2 class="main-content__subheadline">
-              <span class="desktop-only">Free Brochure + 50% off installation</span>
-              <span class="mobile-only">
-                <img class="check-mark" src="assets/media/check-mark.png" alt="Check mark"> Free Brochure <br>
-                <img class="check-mark" src="assets/media/check-mark.png" alt="Check mark"> 50% off installation <br>
-              </span>
-            </h2>
-        </div>
-  
-        <form class="form" id="main-form">
-          <transition name="fade" mode="out-in">
-            <div key="0" v-if="formStep === 0" class="form__section form-step--0">
-              <p class="form__question">
-                {{ formStepData[0].question }}
-              </p>
-
-              <div class="form__field form__field--md-row">
-                  <span class="form__input-text--zip">
-                    <input
-                      v-model="formStepData[0].value"
-                      @keyup="resetError"
-                      class="form__input-text zip-code"
-                      :class="{ error: showError }"
-                      type="text"
-                      pattern="\d*"
-                      v-mask="'#####'"
-                      maxlength="5"
-                      placeholder="Enter Zip Code"
-                    >
-                  </span>
-                  <button
-                    @click.prevent="increaseFormStep"
-                    class="form-step__button form-step__button--float desktop-only"
-                  >
-                    {{ buttonText }}
-                  </button>
-              </div>
-            </div>
-
-            <div key="1" v-if="formStep === 1" class="form__section form-step--1">
-              <p class="form__question">
-                  {{ formStepData[1].question }}
-              </p>
-
-              <div class="form__field">
-                  <div class="input-radios">
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="10+"
-                          name="window-number"
-                          type="radio"
-                          class="input-radio__item"
-                          id="10plus"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="10plus">10+</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="6-9"
-                          name="window-number"
-                          type="radio"
-                          class="input-radio__item"
-                          id="6-9"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="6-9">6 - 9</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input 
-                          @change="onSelectRadio"
-                          value="3-5"
-                          name="window-number"
-                          type="radio"
-                          class="input-radio__item"
-                          id="3-5"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="3-5">3 - 5</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="2"
-                          name="window-number"
-                          type="radio"
-                          class="input-radio__item"
-                          id="2"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="2">2</label>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div key="2" v-if="formStep === 2" class="form__section form-step--2">
-              <p class="form__question">
-                  {{ formStepData[2].question }}
-              </p>
-
-              <div class="form__field">
-                  <div class="input-radios">
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="Within 1 Week"
-                          name="how-soon"
-                          type="radio"
-                          class="input-radio__item"
-                          id="within-1-week"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="within-1-week">Within 1 Week</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="1 - 2 Weeks"
-                          name="how-soon"
-                          type="radio"
-                          class="input-radio__item"
-                          id="1-2-weeks"
-                        >
-                        <label  :class="{ error: showError }" class="input-radio__label" for="1-2-weeks">1 - 2 Weeks</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="More Than 2 Weeks"
-                          name="how-soon"
-                          type="radio"
-                          class="input-radio__item"
-                          id="more-than-2-weeks"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="more-than-2-weeks">More Than 2 Weeks</label>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div key="3" v-if="formStep === 3" class="form__section form-step--3">
-              <p class="form__question">
-                  {{ formStepData[3].question }}
-              </p>
-
-              <div class="form__field">
-                  <div class="input-radios">
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="Yes"
-                          name="financing"
-                          type="radio"
-                          class="input-radio__item"
-                          id="financing-yes"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="financing-yes">Yes</label>
-                      </div>
-
-                      <div class="input-radio__block">
-                        <input
-                          @change="onSelectRadio"
-                          value="No"
-                          name="financing"
-                          type="radio"
-                          class="input-radio__item"
-                          id="financing-no"
-                        >
-                        <label :class="{ error: showError }" class="input-radio__label" for="financing-no">No</label>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div key="4" v-if="formStep === 4" class="form__section form-step--4">
-              <p class="form__question">
-                  {{ formStepData[4].question }}
-              </p>
-
-              <div class="form__field">
-                <div class="form__field">
-                  <input
-                    v-model="formStepData[4].value"
-                    @keyup="resetError"
-                    :class="{ error: showError }"
-                    class="form__input-text street-address"
-                    type="text"
-                    placeholder="Street Address"
-                  >
-                </div>
-                <div class="form__field form__field--address">
-                  <input v-model="city" class="form__input-text city" type="text" placeholder="City">
-                  <input v-model="stateAbbreviation" maxlength="2" class="form__input-text state" type="text" placeholder="State">
-                  <input
-                    v-model="stateZipCode"
-                    class="form__input-text zip-prefilled"
-                    type="text"
-                    v-mask="'#####'"
-                    maxlength="5"
-                    placeholder="ZIP"
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div key="5" v-if="formStep === 5" class="form__section form-step--5">
-                <p class="form__question">
-                  {{ formStepData[5].question }}
-                </p>
-      
-                <div class="form__field">
-                    <div class="input-radios">
-                        <div class="input-radio__block">
-                          <input 
-                            v-model="formStepData[5].firstName"
-                            @keyup="resetError"
-                            :class="{ error: showError }"
-                            class="form__input-text first-name"
-                            type="text"
-                            placeholder="First Name"
-                          >
-                        </div>
-      
-                        <div class="input-radio__block">
-                          <input
-                            v-model="formStepData[5].lastName"
-                            @keyup="resetError"
-                            :class="{ error: showError }"
-                            class="form__input-text last-name"
-                            type="text"
-                            placeholder="Last Name"
-                          >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div key="6" v-if="formStep === 6" class="form__section form-step--6">
-              <p class="form__question">
-                {{ formStepData[6].question }}
-              </p>
     
-              <div class="form__field">
-                  <div class="input-radios">
-                      <div class="input-radio__block">
-                        <span class="form__input-text--phone">
-                          <input
-                            v-model="formStepData[6].phoneNumber"
-                            @keyup="resetError"
-                            :class="{ error: showError }"
-                            v-mask="'(###) ###-####'"
-                            class="form__input-text phone-number"
-                            type="text"
-                            placeholder="Phone"
-                          >
-                        </span>
-                      </div>
-    
-                      <div class="input-radio__block">
-                        <span class="form__input-text--email">
-                          <input
-                            v-model="formStepData[6].emailAddress"
-                            @keyup="resetError"
-                            :class="{ error: showError }"
-                            class="form__input-text email-address"
-                            type="text"
-                            placeholder="Email"
-                          >
-                        </span>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div key="7" v-if="formStep === 7">
-              <div class="thank-you">
-                  <p>Hi {{ formStepData[5].firstName }},</p>
-                  <p>Thank you for contacting Hansons!</p>
-                  <p>A Window Replacement Specialist will call you to schedule your appointment.</p>
-                  <p>TAKE ADVANTAGE OF 50% OFF INSTALLATION during your written price quote.</p>
-                  <p>In the meantime, download your Free Brochure.</p>
-                  <a class="download-brochure" href="/download/">Download Brochure</a>
-              </div>
-              <p class="dont-forget u-text-center">Don’t forget: No Interest & No Payments until Summer of 2020 on approved credit.</p>
-            </div>
-          </transition>
-            <button
-              v-show="showMainButton"
-              @click.prevent="increaseFormStep"
-              class="form-step__button"
-              :class="{ 'form-step__button--float': formStep === 0}"
-            >
-              {{ buttonText }}
-          </button>
-          <transition name="fade-button">
-            <p v-show="showConfirmation" class="confirmation">I’d like to learn about your promotions & understand you may use an automatic phone system and text messages to reach me at the number provided above.
-            </p>
-          </transition>
-        </form>
-      </div>
+    <section class="footer">
+      
     </section>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>

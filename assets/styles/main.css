@@ -1,0 +1,220 @@
+/********** Variables **********/
+/********** Base **********/
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-size: cover;
+  min-height: 100vh;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/********** Typography **********/
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.save-big {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: #010101;
+}
+
+@media (min-width: 1024px) {
+  .save-big {
+    font-size: 3.4rem;
+  }
+}
+
+.phone-number {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: #010101;
+  text-decoration: none;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.phone-number:hover {
+  color: #777777;
+}
+
+@media (min-width: 1024px) {
+  .phone-number {
+    font-size: 3.4rem;
+  }
+}
+
+/********** Utilities **********/
+@media (max-width: 1024px) {
+  .u-desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .u-mobile-only {
+    display: none;
+  }
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-align-items-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/********** Header **********/
+.main-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 5;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+@media (min-width: 1200px) {
+  .main-header {
+    padding: 2rem 0;
+    background-size: cover;
+    -webkit-box-shadow: 0;
+            box-shadow: 0;
+  }
+}
+
+.header-left {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header-left {
+    display: block;
+    width: 33%;
+  }
+}
+
+.header-center {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .header-center {
+    width: 33%;
+  }
+}
+
+.header-right {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 33%;
+  }
+}
+
+.logo {
+  max-width: 200px;
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 100%;
+  }
+}
+
+.phone-icon {
+  position: absolute;
+  right: 5%;
+}
+
+/********** Container **********/
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+/********** Main Hero **********/
+.main-hero {
+  max-width: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.3))), url("/assets/media/background-mobile.png") top left no-repeat;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3)), url("/assets/media/background-mobile.png") top left no-repeat;
+  -webkit-filter: blur(0.2rem);
+          filter: blur(0.2rem);
+  background-size: cover;
+}
+
+/********** Button **********/
+/*# sourceMappingURL=main.css.map */
