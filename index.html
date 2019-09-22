@@ -2,47 +2,556 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Hansons Window Quotes</title>
-    <meta name="description" content="Request your free window replacement price quote and get instant access to your free brochure, plus 50% off installation.">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/styles/main.css">
+    <title>Thomspon Creek Quotes</title>
+    <meta name="description" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <script src="https://kit.fontawesome.com/c68d77801a.js"></script>
   </head>
   <body>
-
+    
     <!-- Header -->
-    <header class="main-header">
+    <header class="main-header u-sm-fixed">
       <div class="container u-align-items-center">
-          <div class="header-left">
-            <h4 class="save-big">Save Big This Season</h4>
-          </div>
-  
-          <div class="header-center">
-            <img class="logo" src="./assets/media/thompson-logo.png" alt="Thompson Creek logo">
-            <a class="phone-icon u-mobile-only" href="#"><img src="./assets/media/ringer-volume-50.png" alt="Ringer icon"></a>
-          </div>
-  
-          <div class="header-right">
-            <a href="" class="phone-number">(240) 623-5539</a>
-          </div>
+        <div class="header-left">
+          <h4 class="save-big">Save Big This Season</h4>
+        </div>
+
+        <div class="header-center">
+          <img
+            class="logo"
+            src="./assets/media/thompson-logo.png"
+            alt="Thompson Creek logo"
+          />
+          <a class="phone-icon u-mobile-only" href="tel:+1-240-623-5539"
+            ><img src="./assets/media/ringer-volume-50.png" alt="Ringer icon"
+          /></a>
+        </div>
+
+        <div class="header-right">
+          <a href="tel:+1-240-623-5539" class="phone-header">(240) 623-5539</a>
+        </div>
       </div>
     </header>
 
     <section class="main-hero">
-      <div class="container">
-        dfds
+      <div class="container u-flex-column u-flex-lg-row">
+        <!-- Headlines and bullets -->
+        <div class="cta-section">
+          <div class="main-content__headline-section">
+            <h1 class="main-headline">
+              Get your Free Price Estimate and Instantly Receive:
+            </h1>
+
+            <div class="main-bullets">
+              <span class="main-bullets__item">
+                Free Brochure
+              </span>
+              <span class="main-bullets__item">
+                Plus, Buy One Get <br />one 40% Off
+              </span>
+            </div>
+          </div>
+
+          <!-- Form here -->
+          <form class="form" id="main-form">
+            <transition name="fade" mode="out-in">
+              <div
+                key="0"
+                v-if="formStep === 0"
+                class="form__section form-step--0"
+              >
+                <p class="form__question">
+                  {{ formStepData[0].question }}
+                </p>
+
+                <img
+                  class="map-marker"
+                  src="./assets/media/icon-marker.png"
+                  alt="Map Marker"
+                />
+
+                <div class="form__field form__field--md-row">
+                  <input
+                    v-model="formStepData[0].value"
+                    @keyup="resetError"
+                    class="form__input-text zip-code"
+                    :class="{ error: showError }"
+                    type="text"
+                    pattern="\d*"
+                    v-mask="'#####'"
+                    maxlength="5"
+                    placeholder="Enter Zip Code"
+                  />
+                </div>
+              </div>
+
+              <div
+                key="1"
+                v-if="formStep === 1"
+                class="form__section form-step--1"
+              >
+                <p class="form__question">
+                  {{ formStepData[1].question }}
+                </p>
+
+                <div class="form__field">
+                  <div class="input-radios">
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="10+"
+                        name="window-number"
+                        type="radio"
+                        class="input-radio__item"
+                        id="10plus"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="10plus"
+                        >10+</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="6-9"
+                        name="window-number"
+                        type="radio"
+                        class="input-radio__item"
+                        id="6-9"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="6-9"
+                        >6 - 9</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="3-5"
+                        name="window-number"
+                        type="radio"
+                        class="input-radio__item"
+                        id="3-5"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="3-5"
+                        >3 - 5</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="2"
+                        name="window-number"
+                        type="radio"
+                        class="input-radio__item"
+                        id="2"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="2"
+                        >2</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                key="2"
+                v-if="formStep === 2"
+                class="form__section form-step--2"
+              >
+                <p class="form__question" v-html="formStepData[2].question"></p>
+
+                <div class="form__field">
+                  <div class="input-radios">
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="Within 1 Week"
+                        name="how-soon"
+                        type="radio"
+                        class="input-radio__item"
+                        id="within-1-week"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="within-1-week"
+                        >Within 1 Week</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="1 - 2 Weeks"
+                        name="how-soon"
+                        type="radio"
+                        class="input-radio__item"
+                        id="1-2-weeks"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="1-2-weeks"
+                        >1 - 2 Weeks</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="More Than 2 Weeks"
+                        name="how-soon"
+                        type="radio"
+                        class="input-radio__item"
+                        id="more-than-2-weeks"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="more-than-2-weeks"
+                        >More Than 2 Weeks</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                key="3"
+                v-if="formStep === 3"
+                class="form__section form-step--3"
+              >
+                <p class="form__question">
+                  {{ formStepData[3].question }}
+                </p>
+
+                <div class="form__field">
+                  <div class="input-radios input-radios--column">
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="Yes"
+                        name="financing"
+                        type="radio"
+                        class="input-radio__item"
+                        id="financing-yes"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="financing-yes"
+                        >Yes</label
+                      >
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        @change="onSelectRadio"
+                        value="No"
+                        name="financing"
+                        type="radio"
+                        class="input-radio__item"
+                        id="financing-no"
+                      />
+                      <label
+                        :class="{ error: showError }"
+                        class="input-radio__label"
+                        for="financing-no"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                key="4"
+                v-if="formStep === 4"
+                class="form__section form-step--4"
+              >
+                <p class="form__question">
+                  {{ formStepData[4].question }}
+                </p>
+
+                <div class="form__field">
+                  <div class="form__field">
+                    <input
+                      v-model="formStepData[4].value"
+                      @keyup="resetError"
+                      :class="{ error: showError }"
+                      class="form__input-text street-address"
+                      type="text"
+                      placeholder="Street Address"
+                    />
+                  </div>
+                  <div class="form__field form__field--address">
+                    <input
+                      v-model="city"
+                      class="form__input-text city"
+                      type="text"
+                      placeholder="City"
+                    />
+                    <input
+                      v-model="stateAbbreviation"
+                      maxlength="2"
+                      class="form__input-text state"
+                      type="text"
+                      placeholder="State"
+                    />
+                    <input
+                      v-model="stateZipCode"
+                      class="form__input-text zip-prefilled"
+                      type="text"
+                      v-mask="'#####'"
+                      maxlength="5"
+                      placeholder="ZIP"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                key="5"
+                v-if="formStep === 5"
+                class="form__section form-step--5"
+              >
+                <p class="form__question">
+                  {{ formStepData[5].question }}
+                </p>
+
+                <div class="form__field">
+                  <div class="input-radios input-radios--column">
+                    <div class="input-radio__block">
+                      <input
+                        v-model="formStepData[5].firstName"
+                        @keyup="resetError"
+                        :class="{ error: showError }"
+                        class="form__input-text first-name"
+                        type="text"
+                        placeholder="First Name"
+                      />
+                    </div>
+
+                    <div class="input-radio__block">
+                      <input
+                        v-model="formStepData[5].lastName"
+                        @keyup="resetError"
+                        :class="{ error: showError }"
+                        class="form__input-text last-name"
+                        type="text"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                key="6"
+                v-if="formStep === 6"
+                class="form__section form-step--6"
+              >
+                <p class="form__question">
+                  {{ formStepData[6].question }}
+                </p>
+
+                <div class="form__field">
+                  <div class="input-radios input-radios--column">
+                    <div class="input-radio__block">
+                      <span class="form__input-text--phone">
+                        <input
+                          v-model="formStepData[6].phoneNumber"
+                          @keyup="resetError"
+                          :class="{ error: showError }"
+                          v-mask="'(###) ###-####'"
+                          class="form__input-text phone-number"
+                          type="text"
+                          placeholder="Phone"
+                        />
+                      </span>
+                    </div>
+
+                    <div class="input-radio__block">
+                      <span class="form__input-text--email">
+                        <input
+                          v-model="formStepData[6].emailAddress"
+                          @keyup="resetError"
+                          :class="{ error: showError }"
+                          class="form__input-text email-address"
+                          type="text"
+                          placeholder="Email"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div key="7" v-if="formStep === 7">
+                <div class="thank-you">
+                  <p>Hi {{ formStepData[5].firstName }},</p>
+                  <p>Thank you for contacting Thompson Creek!</p>
+                  <p>
+                    A Window Replacement Specialist will call you to schedule
+                    your appointment.
+                  </p>
+                  <p>
+                    Take advantage of buy one get one 40% off during your
+                    written price estimate.
+                  </p>
+                  <p>In the meantime, download your Free Brochure.</p>
+                  <a class="download-brochure" href="/download/"
+                    >Download Brochure</a
+                  >
+                </div>
+              </div>
+            </transition>
+            <button
+              v-show="showButton"
+              @click.prevent="increaseFormStep"
+              class="form-step__button"
+              :class="{ 'form-step__button--float': formStep === 0, 'u-button-size-sm': smallerButtonSize}"
+            >
+              {{ buttonText }}
+              <i class="form-step__arrow fas fa-angle-double-right"></i>
+            </button>
+            <transition name="fade-button">
+              <p v-show="showConfirmation" class="confirmation">
+                By completing the form, you’re giving us permission to call,
+                email, or text you with information on our products and services
+                using the information you provide.
+              </p>
+            </transition>
+          </form>
+        </div>
       </div>
     </section>
-    
-    <section class="footer">
-      
+
+    <!-- Desktop only features -->
+    <section class="features">
+      <h2 class="features__headline">Design. Build. Install. We Do It All.</h2>
+
+      <div class="reviews container">
+        <div class="reviews__box">
+          <div class="reviews__stars">
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+          </div>
+
+          <p class="reviews__content">
+            Dealing with Thompson Creek from start to finish was a very positive
+            and comfortable experience. I could not be happier with the product
+            and with the professional attitude, conduct and installation. Thank
+            you Thompson Creek.
+          </p>
+
+          <div class="reviews__meta">
+            <span class="reviews__name">Erwin M.</span>
+            <span class="reviews__location">Washington, DC</span>
+          </div>
+        </div>
+
+        <div class="reviews__box">
+          <div class="reviews__stars">
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+          </div>
+
+          <p class="reviews__content">
+            The salesmen were all very polite, friendly and professional.
+            Thompson Creek was very patient with me while I made up my mind
+            about what exactly I wanted. When all was said and done, I was very
+            happy and satisfied. I will recommend them to everyone.
+          </p>
+
+          <div class="reviews__meta">
+            <span class="reviews__name">Margie O.</span>
+            <span class="reviews__location">Woodbridge, VA</span>
+          </div>
+        </div>
+
+        <div class="reviews__box">
+          <div class="reviews__stars">
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+            <i class="reviews__star fa fa-star" aria-hidden="true"></i>
+          </div>
+
+          <p class="reviews__content">
+            Great product and staff. Sales meeting was not pushy and they really
+            listened to what we needed and wanted. Everyone we interacted with
+            was very professional.
+          </p>
+
+          <div class="reviews__meta">
+            <span class="reviews__name">Seth S.</span>
+            <span class="reviews__location">Gaithersburg, MD</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-  <script src="assets/scripts/app.js"></script>
+    <!-- Badges -->
+    <section class="badges">
+      <div class="container u-justify-content-center">
+        <img
+          src="./assets/media/thompson-badges.png"
+          alt="Thompson trust badges"
+        />
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+      <div class="container u-flex-column">
+        <p class="footer__text-line">
+          Website copyright © 2019 Thompson Creek. All rights reserved.
+        </p>
+        <p class="footer__text-line">
+          Privacy Policy | License Numbers: MHIC # 125294 VA # 2705-117858-A DC
+          Permanent # 8246
+        </p>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="assets/scripts/app.js"></script>
   </body>
 </html>

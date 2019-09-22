@@ -1,1 +1,105 @@
 /********** Button **********/
+
+// Form button
+.form-step__button {
+  position: relative;
+  background: $color-secondary;
+  color: $color-white;
+  width: 240px;
+  color: $color-white;
+  font-size: 2.6rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.4rem 3rem;
+  border: none;
+  border-radius: 4px;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: background 0.4s;
+  outline: none;
+  max-width: 295px;
+}
+@media(min-width: 1300px) {
+  .form-step__button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 3.4rem;
+    max-width: 30rem;
+    width: 30rem;
+    height: 5rem;
+    line-height: 0
+  }
+}
+
+.form-step__button::before {
+  content: url('/assets/media/thompson-form-arrow-sm.png');
+  position: absolute;
+  width: 50px;
+  left: -4rem;
+  top: -2.5rem;
+}
+@media(min-width: 1024px) {
+  .form-step__button::before {
+    content: url('/assets/media/thompson-form-arrow.png');
+    left: -10rem;
+    top: -3rem;
+  }
+}
+
+// Arrow
+.form-step__arrow {
+  color: #ffffff;
+  margin-left: 1rem;
+}
+
+
+// Brochure
+.download-brochure {
+  position: relative;
+  background: $color-secondary;
+  text-align: center;
+  color: $color-white;
+  width: 285px;
+  color: $color-white;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  padding: 0.8rem 3rem;
+  border: none;
+  border-radius: 4px;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  transition: background 0.4s;
+  outline: none;
+  max-width: 295px;
+  text-decoration: none;
+  align-self: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 2rem
+}
+@media(min-width: 1300px) {
+  .download-brochure {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 2.6rem;
+    max-width: 31rem;
+    width: 31rem;
+    margin-top: 0;
+  }
+}
+
+.download-brochure::before {
+  content: url('/assets/media/thompson-form-arrow-sm.png');
+  position: absolute;
+  width: 50px;
+  left: -4rem;
+  top: -2.5rem;
+}
+@media(min-width: 1024px) {
+  .download-brochure::before {
+    content: url('/assets/media/thompson-form-arrow.png');
+    left: -10rem;
+    top: -3rem;
+  }
+}

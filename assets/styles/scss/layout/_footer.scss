@@ -1,0 +1,12 @@
+/********** Footer **********/
+
+.footer {
+  padding-bottom: 3rem; 
+  
+  &__text-line {
+    text-align: center;
+    font-weight: 400;
+    color: $color-primary;
+    font-size: 1.4rem;
+  }
+}

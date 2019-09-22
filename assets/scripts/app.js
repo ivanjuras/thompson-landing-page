@@ -6,9 +6,10 @@ var vm = new Vue({
   data: function() {
     return {
       endPointURL:
-        "https://hook.integromat.com/upb5gcrkmfdgadwwvwckx0ynfscyhsnc", // Change your endpoint URL here
-      showMainButton: false,
+        "https://hook.integromat.com/e58pt52v9cjs9we993e2y9d13djsxdcb", // Change your endpoint URL here
       buttonText: "Next",
+      showButton: true,
+      smallerButtonSize: false,
       showConfirmation: false,
       formStep: 0,
       showError: false,
@@ -18,17 +19,18 @@ var vm = new Vue({
       finalObject: {},
       formStepData: [
         {
-          question: "Where do you need your New Windows installed?",
+          question: "Where do you need your new windows installed?",
           value: null,
           pattern: /(^\d{5}$)|(^\d{5}-\d{4}$)/
         },
         {
-          question: "How many New Windows do you need installed?",
+          question: "How many new windows do you need installed?",
           value: "",
           pattern: /[a-z0-9]/
         },
         {
-          question: "How soon do you want to begin your project?",
+          question:
+            'How soon do you want to <br class="desktop-only"> begin your project?',
           value: "",
           pattern: /[a-z0-9]/
         },
@@ -63,18 +65,25 @@ var vm = new Vue({
     increaseFormStep: function() {
       if (this.formStep === 0) {
         this.fireStep0Data()
+        this.scrollToTop()
       } else if (this.formStep === 1) {
         this.fireStep1Data()
+        this.scrollToTop()
       } else if (this.formStep === 2) {
         this.fireStep2Data()
+        this.scrollToTop()
       } else if (this.formStep === 3) {
         this.fireStep4Data()
+        this.scrollToTop()
       } else if (this.formStep === 4) {
         this.fireStep5Data()
+        this.scrollToTop()
       } else if (this.formStep === 5) {
         this.fireStep6Data()
+        this.scrollToTop()
       } else if (this.formStep === 6) {
         this.fireStep7Data()
+        this.scrollToTop()
       }
     },
 
@@ -109,7 +118,6 @@ var vm = new Vue({
             vm.stateZipCode = vm.formStepData[0].value
             vm.formStep++
             vm.showError = false
-            vm.showMainButton = true
           })
           .catch(function(error) {
             vm.showError = true
@@ -147,7 +155,8 @@ var vm = new Vue({
         this.formStep++
         this.showError = false
         this.showConfirmation = true
-        this.buttonText = "Get Quote"
+        this.buttonText = "Get Estimate"
+        this.smallerButtonSize = true
       } else {
         this.showError = true
       }
@@ -190,7 +199,6 @@ var vm = new Vue({
 
         this.formStep++
         this.showError = false
-        this.showMainButton = false
         this.showConfirmation = false
 
         setTimeout(function() {
@@ -198,6 +206,7 @@ var vm = new Vue({
             ".main-content__headline-section"
           )
           headlineSection.parentNode.removeChild(headlineSection)
+          vm.showButton = false
         }, 400)
       } else {
         this.showError = true
@@ -224,6 +233,27 @@ var vm = new Vue({
     onSelectRadio: function(event) {
       this.formStepData[this.formStep].value = event.target.value
       this.resetError()
+    },
+
+    scrollToTop: function() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      })
     }
   }
 })
+
+// window.addEventListener(`scroll`, function() {
+//   var mainHeader = document.querySelector(".main-header")
+//   var mainHero = document.querySelector(".main-hero")
+
+//   if (window.scrollY >= 100) {
+//     mainHeader.classList.add("u-sm-fixed")
+//     mainHero.classList.add("u-pt-100")
+//   } else {
+//     mainHeader.classList.remove("u-sm-fixed")
+//     mainHero.classList.remove("u-pt-100")
+//   }
+// })
