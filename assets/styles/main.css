@@ -106,11 +106,18 @@ body {
 }
 
 .features__headline {
-  font-size: 3.6rem;
+  font-size: 5.2vw;
   color: #022d62;
   font-weight: 400;
   text-align: center;
-  padding: 4rem 0 6rem 0;
+  padding: 4rem 0 4rem 0;
+}
+
+@media (min-width: 650px) {
+  .features__headline {
+    font-size: 3.6rem;
+    padding: 4rem 0 6rem 0;
+  }
 }
 
 /********** Utilities **********/
@@ -122,7 +129,7 @@ body {
 
 @media (min-width: 1300px) {
   .u-mobile-only {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -304,6 +311,7 @@ body {
 /********** Badges **********/
 .badges {
   margin-bottom: 3rem;
+  padding: 0 1rem;
 }
 
 /********** Features **********/
